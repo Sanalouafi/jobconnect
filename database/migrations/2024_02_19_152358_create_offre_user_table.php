@@ -14,7 +14,7 @@ return new class extends Migration
     Schema::create('offre_user', function (Blueprint $table) {
         $table->id();
         $table->boolean('status')->default(0);
-        $table->unsignedBigInteger('offer_id');
+        $table->unsignedBigInteger('offre_id');
         $table->foreign('offre_id')->references('id')->on('offres')->onUpdate('cascade')->onDelete('cascade');
         $table->unsignedBigInteger('user_id');
         $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
