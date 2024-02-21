@@ -8,21 +8,30 @@ class UserStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     *
+     * @return bool
      */
-    public function authorize(): bool
+    public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array
      */
-    public function rules(): array
+    public function rules()
     {
         return [
-            //
+            'fullname' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string|min:8',
+            'address' => 'nullable|string|max:255',
+            'phone' => 'nullable|string|max:20',
+            'status' => 'required|boolean',
+            'role_id' => 'required|exists:roles,id',
+            'image'=> 'required|mimes:jpg,jpeg,png,gif',
         ];
     }
 }

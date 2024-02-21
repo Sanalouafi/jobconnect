@@ -2,16 +2,17 @@
 
 namespace Database\Seeders;
 
+use \App\Models\Company;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class CampanieSeeder extends Seeder
+class CampanySeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
-    public function run(): void
-    {
-        //
-    }
+    public function run()
+{
+    Company::factory(10)->create();
+}
 }

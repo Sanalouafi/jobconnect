@@ -10,7 +10,12 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 class Company extends Model implements HasMedia
 {
     use HasFactory,InteractsWithMedia;
-    protected $fillable = ['name', 'localisation', 'description'];
+    protected $fillable =
+    [
+        'name',
+        'localisation',
+        'description'
+    ];
 
     public function offres()
     {
