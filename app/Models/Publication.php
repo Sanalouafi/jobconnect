@@ -4,29 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Offer extends Model implements HasMedia
+class Publication extends Model implements HasMedia
 {
-    use HasFactory,InteractsWithMedia;
+    use HasFactory, InteractsWithMedia, SoftDeletes;
     protected $fillable = [
-        'title',
-        'description',
-        'contract',
-        'deadline',
-        'salary',
-        'localisation',
-        'company_id',
+        "title",
+        "description",
+        "company_id",
+        "created_at",
+        "updated_at",
+        "deleted_at",
     ];
-
     public function company()
     {
         return $this->belongsTo(Company::class);
-    }
-
-    public function users()
-    {
-        return $this->belongsToMany(User::class);
     }
 }
