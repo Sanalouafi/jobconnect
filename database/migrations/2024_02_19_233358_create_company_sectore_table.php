@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('company_secture', function (Blueprint $table) {
+        Schema::create('company_sector', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('company_id');
             $table->foreign('company_id')->references('id')->on('companies')->onUpdate('cascade')->onDelete('cascade');
-            $table->unsignedBigInteger('secture_id');
-            $table->foreign('secture_id')->references('id')->on('secturs')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('sector_id');
+            $table->foreign('sector_id')->references('id')->on('sectors')->onUpdate('cascade')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('companie_secture');
+        Schema::dropIfExists('companie_sector');
     }
 };
