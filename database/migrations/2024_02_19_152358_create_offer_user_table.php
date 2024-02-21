@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
 {
-    Schema::create('offre_user', function (Blueprint $table) {
+    Schema::create('offer_user', function (Blueprint $table) {
         $table->id();
         $table->boolean('status')->default(0);
-        $table->unsignedBigInteger('offre_id');
-        $table->foreign('offre_id')->references('id')->on('offres')->onUpdate('cascade')->onDelete('cascade');
+        $table->unsignedBigInteger('offer_id');
+        $table->foreign('offer_id')->references('id')->on('offers')->onUpdate('cascade')->onDelete('cascade');
         $table->unsignedBigInteger('user_id');
         $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         $table->softDeletes();
