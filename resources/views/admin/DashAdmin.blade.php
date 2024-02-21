@@ -63,7 +63,7 @@
 
                     </li>
                     <li>
-                        <a href="{{ route('users') }}"
+                        <a href=""
                             class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                                 aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -76,7 +76,7 @@
                     </li>
 
                     <li>
-                        <a href="{{ route('projects') }}"
+                        <a href=""
                             class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                                 aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -89,7 +89,7 @@
                     </li>
 
                     <li>
-                        <a href="{{ route('partner.create') }}"
+                        <a href=""
                             class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                                 aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -244,7 +244,7 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($projects as $project)
+                            {{--  @foreach ($projects as $project)
                                 <tr class="hover:bg-gray-50">
                                     <td class="px-6 py-3 border-b">{{ $project->id }}</td>
                                     <td class="px-6 py-3 border-b">{{ $project->name }}</td>
@@ -257,7 +257,7 @@
                                     <td class="px-6 py-3 border-b">{{ $project->budget }}</td>
                                     <td class="px-6 py-3 border-b">{{ $project->partner->name }}</td>
                                 </tr>
-                            @endforeach
+                            @endforeach  --}}
                         </tbody>
                     </table>
                 </form>
@@ -282,7 +282,7 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($users as $user)
+                            {{--  @foreach ($users as $user)
                                 <tr class="hover:bg-gray-50">
                                     <td class="px-6 py-3 border-b">{{ $user->id }}</td>
                                     <td class="px-6 py-3 border-b">
@@ -295,7 +295,7 @@
                                     <td class="px-6 py-3 border-b">{{ $user->type }}</td>
                                     <td class="px-6 py-3 border-b">{{ $user->email }}</td>
                                 </tr>
-                            @endforeach
+                            @endforeach  --}}
                         </tbody>
                     </table>
                 </form>
