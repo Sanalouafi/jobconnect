@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -18,7 +19,8 @@ class UserController extends Controller
 
     public function Show()
     {
-        $users = User::paginate(10);
+        $user=Auth::user();
+        $user = User::paginate(10);
 
         return view('admin.Dashadmin', compact('users'));
     }
