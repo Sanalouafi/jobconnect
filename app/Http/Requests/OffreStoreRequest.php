@@ -6,23 +6,32 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class OffreStoreRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
-    public function authorize(): bool
-    {
-        return false;
+        /**
+         * Determine if the user is authorized to make this request.
+         *
+         * @return bool
+         */
+        public function authorize()
+        {
+            return true;
+        }
+
+        /**
+         * Get the validation rules that apply to the request.
+         *
+         * @return array
+         */
+        public function rules()
+        {
+            return [
+                'title' => 'required|string|max:255',
+                'description' => 'required|string',
+                'contract' => 'required|string|max:255',
+                'deadline' => 'required|date',
+                'salary' => 'required|numeric',
+                'localisation' => 'required|string|max:255',
+                'company_id' => 'required|exists:companies,id',
+            ];
+        }
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
-    public function rules(): array
-    {
-        return [
-            //
-        ];
-    }
-}

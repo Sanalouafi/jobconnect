@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SecteurStoreRequest extends FormRequest
+class ExperienceUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,13 @@ class SecteurStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'sometimes|string|max:255',
+            'start_date' => 'sometimes|date',
+            'end_date' => 'sometimes|date',
+            'company_name' => 'sometimes|string|max:255',
+            'description' => 'sometimes|string',
+            'task' => 'sometimes|string|max:255',
+            'user_id' => 'sometimes|exists:users,id',
         ];
     }
 }

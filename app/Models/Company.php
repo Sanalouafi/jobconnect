@@ -10,16 +10,25 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 class Company extends Model implements HasMedia
 {
     use HasFactory,InteractsWithMedia;
-    protected $fillable = ['name', 'localisation', 'description'];
+    protected $fillable =
+    [
+        'name',
+        'localisation',
+        'description'
+    ];
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 
     public function offres()
     {
-        return $this->hasMany(Offre::class);
+        return $this->hasMany(Offer::class);
     }
 
-    public function secturs()
+    public function sectors()
     {
-        return $this->belongsToMany(Sector::class, 'company_secteur');
+        return $this->belongsToMany(Sector::class, 'company_sector');
     }
 
     public function publications()

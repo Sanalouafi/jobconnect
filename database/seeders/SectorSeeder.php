@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Experience;
+use App\Models\Sector;
 
-class ExperiencesTableSeeder extends Seeder
+class SectorsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class ExperiencesTableSeeder extends Seeder
      */
     public function run()
     {
-        Experience::factory()->count(10)->create();
+        Sector::factory()->count(5)->create();
     }
 }

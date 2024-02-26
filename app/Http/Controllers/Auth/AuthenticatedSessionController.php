@@ -8,14 +8,13 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
 {
     /**
      * Display the login view.
      */
-    public function create(): View
+    public function create()
     {
         return view('auth.login');
     }
@@ -29,7 +28,19 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        $user = Auth::user();
+
+        if ($user->role->name === 'admin') {
+            return redirect()->route('admin.index');
+        } elseif ($user->role->name === 'Condidator') {
+            return redirect()->route('condidate.index');
+        } elseif ($user->role->name === 'Entrepreneur') {
+            return redirect()->route('admin.entrepreneur');
+        } elseif ($user->role->name === 'Representative') {
+            return redirect()->route('admin.representative');
+        }
+
+        return redirect()->route('login');
     }
 
     /**

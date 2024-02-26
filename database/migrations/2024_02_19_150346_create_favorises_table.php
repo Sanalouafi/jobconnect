@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('favorises', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('offre_id');
-            $table->foreign('offre_id')->references('id')->on('offres')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('offer_id');
+            $table->foreign('offer_id')->references('id')->on('offers')->onUpdate('cascade')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });

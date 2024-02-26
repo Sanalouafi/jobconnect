@@ -4,14 +4,12 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ExperienceStoreRequest extends FormRequest
+class FormationUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
-     *
-     * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -19,18 +17,15 @@ class ExperienceStoreRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             'name' => 'required|string|max:255',
             'start_date' => 'required|date',
             'end_date' => 'required|date',
-            'company_name' => 'required|string|max:255',
-            'description' => 'required|string',
-            'task' => 'required|string|max:255',
-            'user_id' => 'required|exists:users,id',
+            'etablissement' => 'required|string|max:255',
         ];
     }
 }

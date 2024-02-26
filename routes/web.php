@@ -1,7 +1,11 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\UserController as AdminController;//allias
+use App\Http\Controllers\Condidater\UserController as CondidateController;//allias
+
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,13 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+// Route::get('Dashadmin',['Admin\UserController@index'])->name('Dashadmin');
+
+
+Route::resource('admin', AdminController::class);
+
+Route::resource('condidate', CondidateController::class);
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,4 +39,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
