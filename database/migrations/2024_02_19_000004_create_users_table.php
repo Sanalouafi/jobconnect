@@ -22,6 +22,8 @@ return new class extends Migration
         $table->boolean('status')->default(1);
         $table->unsignedBigInteger('role_id')->default(2);
         $table->foreign('role_id')->references('id')->on('roles')->onUpdate('cascade')->onDelete('cascade');
+        $table->unsignedBigInteger('company_id')->nullable();
+        $table->foreign('company_id')->references('id')->on('companies')->onUpdate('cascade')->onDelete('cascade');
         $table->softDeletes();
         $table->timestamps();
     });

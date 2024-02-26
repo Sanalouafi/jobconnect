@@ -16,9 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('localisation');
             $table->text('description');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
-            $table->softDeletes();
+           $table->softDeletes();
             $table->timestamps();
         });
     }

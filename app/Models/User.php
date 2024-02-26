@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasMedia
 {
-    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes,InteractsWithMedia;
 
     /**
      * The attributes that are mass assignable.
@@ -26,6 +28,7 @@ class User extends Authenticatable
         'phone',
         'status',
         'role_id',
+        'company_id',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -34,11 +37,18 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class);
     }
+<<<<<<< HEAD
     
+=======
+>>>>>>> f9874972a20cd5bf663a2d146427e00f4617bb78
     public function company()
     {
         return $this->belongsTo(Company::class);
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> f9874972a20cd5bf663a2d146427e00f4617bb78
 
     public function formations()
     {
