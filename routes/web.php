@@ -23,25 +23,11 @@ use Illuminate\Support\Facades\Route;
 // Route::get('Dashadmin',['Admin\UserController@index'])->name('Dashadmin');
 
 
-<<<<<<< HEAD
 Route::resource('admin',AdminController::class);
 Route::resource('adminCompany',CompanyController::class);
 
-
-
 Route::resource('condidate',CondidateController::class);
 
-
-
-
-
-
-
-=======
-Route::resource('admin', AdminController::class);
-
-Route::resource('condidate', CondidateController::class);
->>>>>>> f9874972a20cd5bf663a2d146427e00f4617bb78
 
 Route::get('/', function () {
     return view('welcome');
