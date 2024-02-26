@@ -21,22 +21,9 @@ use Illuminate\Support\Facades\Route;
 // Route::get('Dashadmin',['Admin\UserController@index'])->name('Dashadmin');
 
 
-Route::resource('admin',AdminController::class);
+Route::resource('admin', AdminController::class);
 
-Route::resource('condidate',CondidateController::class);
-
-
-
-
-
-
-
-
-
-
-
-
-
+Route::resource('condidate', CondidateController::class);
 
 Route::get('/', function () {
     return view('welcome');
@@ -52,4 +39,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

@@ -16,6 +16,10 @@ class Company extends Model implements HasMedia
         'localisation',
         'description'
     ];
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 
     public function offres()
     {
