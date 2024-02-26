@@ -37,19 +37,11 @@ class User extends Authenticatable implements HasMedia
     {
         return $this->belongsTo(Role::class);
     }
-<<<<<<< HEAD
-    
-=======
->>>>>>> f9874972a20cd5bf663a2d146427e00f4617bb78
+
     public function company()
     {
         return $this->belongsTo(Company::class);
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> f9874972a20cd5bf663a2d146427e00f4617bb78
-
     public function formations()
     {
         return $this->belongsToMany(Formation::class);
