@@ -11,11 +11,11 @@
 </head>
 <body>
 
-<nav class="bg-white border-gray-200 dark:bg-gray-900">
+<nav class="bg-white border-gray-200 dark:bg-gray-200 dark:border-gray-200">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
         <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
-        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-black">Flowbite</span>
     </a>
     <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
         <button type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
@@ -23,23 +23,23 @@
           <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo">
         </button>
         <!-- Dropdown menu -->
-        <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+        <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-00 dark:divide-gray-00" id="user-dropdown">
           <div class="px-4 py-3">
-            <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
-            <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
+            <span class="block text-sm text-gray-900 dark:text-white">{{ Auth::user()->fullname }}</span>
+            <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{ Auth::user()->email }}</span>
           </div>
           <ul class="py-2" aria-labelledby="user-menu-button">
             <li>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-00 dark:hover:bg-gray-00 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
             </li>
             <li>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Profile</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-00 dark:text-gray-200 dark:hover:text-white">Profile</a>
             </li>
             <li>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Favoris</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-00 dark:text-gray-200 dark:hover:text-white">Favoris</a>
             </li>
             <li>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-00 dark:text-gray-200 dark:hover:text-white">Sign out</a>
             </li>
           </ul>
         </div>
@@ -51,15 +51,15 @@
       </button>
     </div>
     <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
-      <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+      <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-01² dark:bg-gray-00 md:dark:bg-gray-00 dark:border-gray-700">
         <li>
           <a href="#" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">Home</a>
         </li>
         <li>
-          <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Profile</a>
+          <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-00 dark:hover:bg-gray-00 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-00">Profile</a>
         </li>
         <li>
-          <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Favoris</a>
+          <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-00 dark:hover:bg-gray-00 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-00">Favoris</a>
         </li>
 
       </ul>
@@ -73,11 +73,14 @@
         <div class="img rounded-full w-52 h-52">
             <img src="" class="img rounded-full w-64 h-64"  alt="">
         </div>
-        <div class="flex align-content-center md:w-2/3 md:pl-8 pt-4 md:pt-0 ">
-            <h1 class="text-2xl font-bold text-gray-800">FullName</h1>
+        <div class="flex flex-col justify-evenly md:w-2/3 md:pl-8 pt-4 md:pt-0 ">
+            <div>
+                <h1 class="text-2xl font-bold text-gray-800"> {{ $user->fullname }}</h1>
+            </div>
             <div class="flex flex-col md:flex-row justify-evenly mt-2 text-gray-600">
-                <p>Address</p>
-                <p class="mt-2 md:mt-0 md:ml-1">Phone</p>
+                <h3 class="mt-2 md:mt-0 md:ml-1">Address : {{ $user->address }}</h3>
+                <h3 class="mt-2 md:mt-0 md:ml-1">Phone : {{ $user->phone }}</h3>
+                <h3 class="mt-2 md:mt-0 md:ml-1">Status : {{ $user->status }}</h3>
             </div>
         </div>
     </div>
@@ -94,7 +97,7 @@
             </div>
             <div class="space-y-4">
                 <div class="border-b border-gray-200 pb-4">
-                    <button class="font-semibold text-left w-full focus:outline-none" onclick="toggleAnswer(event)">Formation</button>
+                    <button class="font-semibold text-left w-full focus:outline-none" onclick="toggleAnswer(event)">Formation <button></button></button>
                     <p class="hidden mt-2">To get started, simply sign up for an account and follow the instructions provided.</p>
                 </div>
             </div>

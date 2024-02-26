@@ -22,7 +22,7 @@ class UserController extends Controller
         $user=Auth::user();
         $user = User::paginate(10);
 
-        return view('admin.Dashadmin', compact('users'));
+        return view('admin.Dashadmin', compact('user'));
     }
 
 

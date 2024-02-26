@@ -27,6 +27,7 @@ class CompanyStoreRequest extends FormRequest
             'name' => 'required|string|max:255',
             'localisation' => 'required|string|max:255',
             'description' => 'required|string',
+            'logo'=> 'required|mimes:jpg,jpeg,png,gif',
             'user_id' => 'required|exists:users,id',
         ];
     }
