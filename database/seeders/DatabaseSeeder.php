@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         //     RoleSeeder::class,
         // ]);
 
-        // \App\Models\Company::factory(5)->create();
+        \App\Models\Company::factory(5)->create();
         \App\Models\Experience::factory(5)->create();
         // Experience::create([
         //     'name' => $this->faker->jobTitle,
