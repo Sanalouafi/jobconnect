@@ -38,7 +38,7 @@ class CompanyController extends Controller
 
     public function edit(Company $company)
     {
-        return view('admin.edit', compact('company'));
+        return view('admin.companies.update', compact('company'));
     }
 
     public function update(CompanyUpdateRequest $request, Company $company)

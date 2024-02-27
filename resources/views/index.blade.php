@@ -158,7 +158,7 @@
     <div class="containe mx-auto pt-48 ">
         <div class="flex flex-row ml-12">
             <div class="ml-20 lg:w-7/12 md:w-6/12 sm:w-full ">
-                <h1 class="mt-4 mb-4 text-3xl font-bold">ArtyCool</h1>
+                <h1 class="mt-4 mb-4 text-3xl font-bold">JobConn</h1>
 
                 <!-- Search Bar -->
                 <div class="flex mb-3">

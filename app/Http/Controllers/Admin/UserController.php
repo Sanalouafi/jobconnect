@@ -16,7 +16,6 @@ class UserController extends Controller
         return view('admin.Dashadmin',compact('users'));
     }
 
-
     public function Show()
     {
         $user=Auth::user();

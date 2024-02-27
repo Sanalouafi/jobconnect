@@ -1,12 +1,12 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\Competency;
+use App\Models\Skill;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class CompetencySeeder extends Seeder
+class SkillSeeder extends Seeder
 {
         /**
          * Run the database seeds.
@@ -15,6 +15,6 @@ class CompetencySeeder extends Seeder
          */
         public function run()
         {
-            Competency::factory()->count(5)->create();
+            Skill::factory()->count(5)->create();
         }
     }
