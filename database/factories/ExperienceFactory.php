@@ -28,7 +28,7 @@ class ExperienceFactory extends Factory
             'company_name' => $this->faker->company,
             'description' => $this->faker->paragraph,
             'task' => $this->faker->sentence,
-            'user_id' => 1, 
+            'user_id' => 2,
         ];
     }
 }
