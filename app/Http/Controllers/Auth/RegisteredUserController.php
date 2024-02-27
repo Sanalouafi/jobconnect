@@ -40,7 +40,6 @@ class RegisteredUserController extends Controller
         //     'phone' => ['required', 'string'],
         //     'role_id' => ['required', 'exists:roles,id'],
         // ]);
-
         $user = User::create([
             'fullname' => $request->fullname,
             'email' => $request->email,
@@ -54,6 +53,7 @@ class RegisteredUserController extends Controller
             $user->addMedia($request->file('image'))->toMediaCollection('user');
         }
         if ($request->role_id == 4) {
+            $user->status = 0;
             $company = Company::create([
                 'name' => $request->name,
                 'localisation' => $request->localisation,

@@ -162,11 +162,11 @@
             <div class="mb-6" id="companyDetails" style="display: none;">
                 <p class="text-md text-gray-700 leading-tight text-center mt-8 mb-5">Your company details</p>
                 <div class="text-gray-900 font-medium text-xs text-center flex flex-col items-center justify-center">
-                    <label for="image-input" class="cursor-pointer">
-                        <img id="preview-image" class="h-40 w-40 rounded-full shadow-xl border-2 border-gray-400"
+                    <label for="logo-input" class="cursor-pointer">
+                        <img id="logo-preview-image" class="h-40 w-40 rounded-full shadow-xl border-2 border-gray-400"
                             src="{{ URL::asset('img/company.jpg') }}" alt="user image">
                     </label>
-                    <input type="file" id="image-input" name="logo" class="hidden" onchange="previewImage(event)"
+                    <input type="file" id="logo-input" name="logo" class="hidden" onchange="logopreviewImage(event)"
                         required>
                 </div>
                 <div class="mb-6"> <input type="text" placeholder="company name" name="name"
@@ -288,6 +288,21 @@
         function previewImage(event) {
             const input = event.target;
             const preview = document.getElementById('preview-image');
+
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function logopreviewImage(event) {
+            const input = event.target;
+            const preview = document.getElementById('logo-preview-image');
 
             if (input.files && input.files[0]) {
                 const reader = new FileReader();

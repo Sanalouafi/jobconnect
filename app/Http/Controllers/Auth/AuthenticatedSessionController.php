@@ -32,12 +32,15 @@ class AuthenticatedSessionController extends Controller
 
         if ($user->role->name === 'admin') {
             return redirect()->route('admin.index');
-        } elseif ($user->role->name === 'Condidator') {
+        }
+        if ($user->role->name === 'Condidator') {
             return redirect()->route('condidate.index');
-        } elseif ($user->role->name === 'Entrepreneur') {
-            return redirect()->route('admin.entrepreneur');
-        } elseif ($user->role->name === 'Representative') {
-            return redirect()->route('admin.representative');
+        }
+        if ($user->role->name === 'Entrepreneur' && $user->status ===1) {
+            return redirect()->route('Entrepreneur.index');
+        }
+        if ($user->role->name === 'Representative' && $user->status ===1) {
+            return redirect()->route('representative.index');
         }
 
         return redirect()->route('login');
