@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('formation_user', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('formation_id');
-            $table->foreign('formation_id')->references('id')->on('formation')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('formation_id')->references('id')->on('formations')->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->softDeletes();
