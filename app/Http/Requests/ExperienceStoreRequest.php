@@ -26,7 +26,15 @@ class ExperienceStoreRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'start_date' => 'required|date',
-            'end_date' => 'required|date',
+            'end_date' => [
+                'required',
+                'date',
+                function ($attribute, $value, $fail) {
+                    if ($this->input('start_date') && strtotime($value) <= strtotime($this->input('start_date'))) {
+                        $fail('The end date must be greater than the start date.');
+                    }
+                },
+            ],
             'company_name' => 'required|string|max:255',
             'description' => 'required|string',
             'task' => 'required|string|max:255',
