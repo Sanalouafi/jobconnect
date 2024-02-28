@@ -44,7 +44,7 @@ Route::resource('representativePub', RepresentativePub::class);
 
 Route::put('/representative/{userId}/change-status', [RepresentativeController::class, 'changeStatus'])->name('representative.changeStatus');
 
-Route::get('representativePub/search', [RepresentativePub::class, 'search'])->name('representativePub.search');
+Route::POST('representativePub/search', [RepresentativePub::class, 'search'])->name('representativePub.search');
 
 
 

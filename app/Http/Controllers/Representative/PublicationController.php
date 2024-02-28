@@ -55,11 +55,11 @@ class PublicationController extends Controller
     {
         $keyword = $request->input('keyword');
 
-        $publications = Publication::where('title', 'like', '%' . $keyword . '%')
+        $publicationsRes = Publication::where('title', 'like', '%' . $keyword . '%')
             ->orWhere('description', 'like', '%' . $keyword . '%')
             ->get();
 
-        return view('representative.publication.index', compact('publications', 'keyword'));
+        return view('representative.publication.show', compact('publicationsRes', 'keyword'));
     }
 
 
