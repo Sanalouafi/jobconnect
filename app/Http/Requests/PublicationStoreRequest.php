@@ -11,7 +11,7 @@ class PublicationStoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,6 +25,8 @@ class PublicationStoreRequest extends FormRequest
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'company_id' => 'required|exists:companies,id',
+            'media'=> 'required|mimes:jpg,jpeg,png,gif',
+
         ];
     }
 }

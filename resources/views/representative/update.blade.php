@@ -148,7 +148,7 @@
                                         <label for="name"
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Your
                                             name</label>
-                                        <input type="name" name="name" id="name"
+                                        <input type="text" name="name" id="name"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"
                                             placeholder="name" required />
                                     </div>
@@ -156,7 +156,7 @@
                                         <label for="company_name"
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Your
                                             company name</label>
-                                        <input type="company_name" name="company_name" id="company_name"
+                                        <input type="text" name="company_name" id="company_name"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"
                                             placeholder="company name" required />
                                     </div>
@@ -187,7 +187,7 @@
                                         <label for="task"
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Your
                                             task</label>
-                                        <input type="task" name="task" id="task"
+                                        <input type="text" name="task" id="task"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"
                                             placeholder="task" required />
                                     </div>
@@ -274,7 +274,7 @@
                                                                 <label for="name"
                                                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Your
                                                                     name</label>
-                                                                <input type="name" name="name" id="name"
+                                                                <input type="text" name="name" id="name"
                                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"
                                                                     placeholder="name"
                                                                     value="{{ $experience->name }}" required />
@@ -283,7 +283,7 @@
                                                                 <label for="company_name"
                                                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Your
                                                                     company name</label>
-                                                                <input type="company_name" name="company_name"
+                                                                <input type="text" name="company_name"
                                                                     id="company_name"
                                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"
                                                                     placeholder="company name"
@@ -318,7 +318,7 @@
                                                                 <label for="task"
                                                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Your
                                                                     task</label>
-                                                                <input type="task" name="task" id="task"
+                                                                <input type="text" name="task" id="task"
                                                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"
                                                                     placeholder="task"
                                                                     value="{{ $experience->task }}" required />

@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Representative Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -18,7 +19,8 @@
         <!-- Desktop sidebar -->
         <aside class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0">
             <div class="py-4 text-gray-500 dark:text-gray-400">
-                <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="{{route('representative.index')}}">
+                <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
+                    href="{{ route('representative.index') }}">
                     JobConnect
                 </a>
                 <ul class="mt-6">
@@ -26,7 +28,7 @@
                         <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                             aria-hidden="true"></span>
                         <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                            href="{{route('representative.index')}}">
+                            href="{{ route('representative.index') }}">
                             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                                 stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                                 <path
@@ -40,7 +42,7 @@
                         <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                             aria-hidden="true"></span>
                         <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                            href="index.html">
+                            href="{{ route('representativePub.index') }}">
                             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                                 stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                                 <path
@@ -68,7 +70,8 @@
             x-transition:leave-end="opacity-0 transform -translate-x-20" @click.away="closeSideMenu"
             @keydown.escape="closeSideMenu">
             <div class="py-4 text-gray-500 dark:text-gray-400">
-                <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="{{route('representative.index')}}">
+                <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
+                    href="{{ route('representative.index') }}">
                     jobConnect
                 </a>
                 <ul class="mt-6">
@@ -76,7 +79,7 @@
                         <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                             aria-hidden="true"></span>
                         <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                            href="{{route('representative.index')}}">
+                            href="{{ route('representative.index') }}">
                             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                                 stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                                 <path
@@ -90,7 +93,7 @@
                         <span class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                             aria-hidden="true"></span>
                         <a class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                            href="index.html">
+                            href="{{ route('representativePub.index') }}">
                             <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
                                 stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                                 <path
@@ -126,9 +129,16 @@
                                         clip-rule="evenodd"></path>
                                 </svg>
                             </div>
-                            <input
-                                class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
-                                type="text" placeholder="Search for projects" aria-label="Search" />
+                            <form action="{{ route('representativePub.search') }}" method="GET">
+                                @csrf
+                                <div class="flex">
+                                    <input class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
+                                        type="text" name="keyword" placeholder="Search for projects" aria-label="Search" />
+                                    <button type="submit" class="text-white mx-4 px-4 border-0 rounded-md bg-violet-800">Search</button>
+                                </div>
+                            </form>
+
+
                         </div>
                     </div>
                     <ul class="flex items-center flex-shrink-0 space-x-6">
@@ -169,7 +179,7 @@
                                     aria-label="submenu">
                                     <li class="flex">
                                         <a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                                            href="{{route('representative.index')}}">
+                                            href="{{ route('representative.index') }}">
                                             <svg class="w-4 h-4 mr-3" aria-hidden="true" fill="none"
                                                 stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 viewBox="0 0 24 24" stroke="currentColor">
@@ -196,7 +206,7 @@
                                     </li>
                                     <li class="flex">
                                         <a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                                            href="{{route('representativeCompany.edit',Auth::id())}}">
+                                            href="{{ route('representativeCompany.edit', Auth::id()) }}">
                                             <svg class="w-4 h-4 mr-3" aria-hidden="true" fill="none"
                                                 stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 viewBox="0 0 24 24" stroke="currentColor">
@@ -235,6 +245,7 @@
                 </div>
             </header>
             <main class="h-full overflow-y-auto">
+
                 {{ $slot }}
             </main>
         </div>
@@ -257,5 +268,7 @@
         }
     }
 </script>
+
+
 
 </html>

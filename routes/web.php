@@ -8,6 +8,7 @@ use App\Http\Controllers\Condidater\UserController as CondidateController;//alli
 use App\Http\Controllers\Representative\UserController as RepresentativeController;//allias
 use App\Http\Controllers\Representative\ExperienceController as RepresentativeExpController;//allias
 use App\Http\Controllers\Representative\CompanyController as RepresentativeComController;//allias
+use App\Http\Controllers\Representative\PublicationController as RepresentativePub;//allias
 use Illuminate\Support\Facades\Route;
 
 
@@ -39,10 +40,11 @@ Route::resource('condidate', CondidateController::class);
 Route::resource('representative', RepresentativeController::class);
 Route::resource('representativeExperience', RepresentativeExpController::class);
 Route::resource('representativeCompany', RepresentativeComController::class);
+Route::resource('representativePub', RepresentativePub::class);
 
 Route::put('/representative/{userId}/change-status', [RepresentativeController::class, 'changeStatus'])->name('representative.changeStatus');
 
-
+Route::get('representativePub/search', [RepresentativePub::class, 'search'])->name('representativePub.search');
 
 
 
