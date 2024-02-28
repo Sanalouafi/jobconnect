@@ -109,8 +109,6 @@
             <div class="p-4 col-span-6 md:col-span-4" id="experience-section" style="display: none">
                 {{-- start modal --}}
 
-
-
                 <!-- Modal toggle -->
                 <button data-modal-target="experience-modal" data-modal-toggle="experience-modal"
                     class="block text-white bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-violet-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-violet-600 dark:hover:bg-violet-700 dark:focus:ring-violet-800"
@@ -127,7 +125,7 @@
                             <!-- Modal header -->
                             <div
                                 class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-black">
                                     Add new experience </h3>
                                 <button type="button"
                                     class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -148,30 +146,30 @@
                                     <input type="hidden" name="user_id" value="{{ $user->id }}">
                                     <div>
                                         <label for="name"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
+                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Your
                                             name</label>
                                         <input type="name" name="name" id="name"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"
                                             placeholder="name" required />
                                     </div>
                                     <div>
                                         <label for="company_name"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
+                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Your
                                             company name</label>
                                         <input type="company_name" name="company_name" id="company_name"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"
                                             placeholder="company name" required />
                                     </div>
                                     <div>
                                         <label for="description"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
+                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Your
                                             description</label>
                                         <textarea name="description" id="description" rows="5"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"></textarea>
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"></textarea>
                                     </div>
                                     <div>
                                         <label for="start_date"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
+                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Your
                                             start date</label>
                                         <input type="date" name="start_date" id="start_date"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray"
@@ -179,7 +177,7 @@
                                     </div>
                                     <div>
                                         <label for="end_date"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
+                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Your
                                             end date</label>
                                         <input type="date" name="end_date" id="end_date"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray"
@@ -187,10 +185,10 @@
                                     </div>
                                     <div>
                                         <label for="task"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
+                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Your
                                             task</label>
                                         <input type="task" name="task" id="task"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"
                                             placeholder="task" required />
                                     </div>
 
@@ -207,43 +205,176 @@
 
 
                 {{-- end modal --}}
-                {{-- card --}}
                 @foreach ($experiences as $experience)
+                    {{-- card --}}
                     <div
-                        class="relative flex w-full max-w-[26rem] flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
+                        class="relative py-5 flex w-full max-w-[26rem] flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
                         <div
                             class="relative flex items-center gap-4 pt-0 pb-8 mx-0 mt-4 overflow-hidden text-gray-700 bg-transparent shadow-none rounded-xl bg-clip-border">
-                            <img src="{{ $user->getFirstMediaUrl('user') }}" alt="Tania Andrew"
-                                class="relative inline-block h-[58px] w-[58px] !rounded-full  object-cover object-center" />
                             <div class="flex w-full flex-col gap-0.5">
                                 <div class="flex items-center justify-between">
                                     <h5
                                         class="block font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
-                                        {{ $user->fullname }}
+                                        {{ $experience->name }}
                                     </h5>
-                                    <div class="flex items-center gap-0 5">
-                                        <span>{{date}}</span>
+                                    <div class="flex items-center gap-5">
+                                        <span>{{ $experience->start_date }} | {{ $experience->end_date }}</span>
+                                        <!-- Edit Icon -->
+                                        <!-- Modal toggle -->
+                                        <a href="#"
+                                            data-modal-target="edit-experience-modal{{ $experience->id }}"
+                                            data-modal-toggle="edit-experience-modal{{ $experience->id }}">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="h-6 w-6 text-violet-500 hover:text-violet-700"
+                                                viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd"
+                                                    d="M15.41 4.41a2 2 0 0 0-2.82 0L5 12.17V14h1.83l7.76-7.77a2 2 0 0 0 0-2.83l-1.41-1.42zm-9.05 9.05L4 15v1h1l6.54-6.53-1.41-1.42L5.36 12.04zm9.19-9.18L15 3a1 1 0 0 0-1 1l.03.26 1.41 1.41.26.03a1 1 0 0 0 1-1l-.03-.26-.63-.63zM8.83 13H4v-4.83l6.17-6.17 4.24 4.24L8.83 13z"
+                                                    clip-rule="evenodd" />
+                                            </svg>
+                                        </a>
+
+                                        <!-- Main modal -->
+                                        <div id="edit-experience-modal{{ $experience->id }}" tabindex="-1"
+                                            aria-hidden="true"
+                                            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100% - 1rem)] max-h-full">
+                                            <div class="relative p-4 w-full max-w-md max-h-full">
+                                                <!-- Modal content -->
+                                                <div
+                                                    class="relative bg-violet-400 rounded-lg shadow dark:bg-violet-800">
+                                                    <!-- Modal header -->
+                                                    <div
+                                                        class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                                                        <h3
+                                                            class="text-xl font-semibold text-gray-900 dark:text-black">
+                                                            edit your experience </h3>
+                                                        <button type="button"
+                                                            class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                                            data-modal-hide="edit-experience-modal{{ $experience->id }}">
+                                                            <svg class="w-3 h-3" aria-hidden="true"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 14 14">
+                                                                <path stroke="currentColor" stroke-linecap="round"
+                                                                    stroke-linejoin="round" stroke-width="2"
+                                                                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                                            </svg>
+                                                            <span class="sr-only">Close modal</span>
+                                                        </button>
+                                                    </div>
+                                                    <!-- Modal body -->
+                                                    <div class="p-4 md:p-5">
+                                                        <form class="space-y-4"
+                                                            action="{{ route('representativeExperience.update', $experience->id) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            @method('PUT')
+                                                            <input type="hidden" name="id"
+                                                                value="{{ $experience->id }}"> <input type="hidden"
+                                                                name="user_id" value="{{ $user->id }}">
+                                                            <div>
+                                                                <label for="name"
+                                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Your
+                                                                    name</label>
+                                                                <input type="name" name="name" id="name"
+                                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"
+                                                                    placeholder="name"
+                                                                    value="{{ $experience->name }}" required />
+                                                            </div>
+                                                            <div>
+                                                                <label for="company_name"
+                                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Your
+                                                                    company name</label>
+                                                                <input type="company_name" name="company_name"
+                                                                    id="company_name"
+                                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"
+                                                                    placeholder="company name"
+                                                                    value="{{ $experience->company_name }}"
+                                                                    required />
+                                                            </div>
+                                                            <div>
+                                                                <label for="description"
+                                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Your
+                                                                    description</label>
+                                                                <textarea name="description" id="description" rows="5"
+                                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black">{{ $experience->description }}</textarea>
+                                                            </div>
+                                                            <div>
+                                                                <label for="start_date"
+                                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Your
+                                                                    start date</label>
+                                                                <input type="date" name="start_date"
+                                                                    id="start_date"
+                                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray"
+                                                                    value="{{ $experience->start_date }}" required />
+                                                            </div>
+                                                            <div>
+                                                                <label for="end_date"
+                                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Your
+                                                                    end date</label>
+                                                                <input type="date" name="end_date" id="end_date"
+                                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-gray"
+                                                                    value="{{ $experience->end_date }}" required />
+                                                            </div>
+                                                            <div>
+                                                                <label for="task"
+                                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Your
+                                                                    task</label>
+                                                                <input type="task" name="task" id="task"
+                                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-black"
+                                                                    placeholder="task"
+                                                                    value="{{ $experience->task }}" required />
+                                                            </div>
+
+                                                            <button type="submit"
+                                                                class="w-full text-white bg-violet-950 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-violet-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-violet-950 dark:hover:bg-violet-700 dark:focus:ring-violet-800">
+                                                                save
+                                                            </button>
+
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <!-- Delete Icon -->
+                                        <form
+                                            action="{{ route('representativeExperience.destroy', $experience->id) }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <input type="hidden" name="id" value="{{ $experience->id }}">
+                                            <button type="submit"
+                                                onclick="return confirm('Are you sure you want to delete this experience?')">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="h-6 w-6 text-gray-500 hover:text-gray-700"
+                                                    viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd"
+                                                        d="M6 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v1h2a1 1 0 0 1 0 2h-.42l-.44 13.31A2 2 0 0 1 13.16 20H6.84a2 2 0 0 1-1.98-1.69L4.42 7H4a1 1 0 0 1 0-2h2V3zm2 2v10h2V5H8zm4 0v10h2V5h-2z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                                 <p
                                     class="block font-sans text-base antialiased font-light leading-relaxed text-blue-gray-900">
-                                    Frontend Lead @ Google
+                                    {{ $experience->company_name }}
                                 </p>
                                 <p
                                     class="block font-sans text-base antialiased font-light leading-relaxed text-blue-gray-900">
-                                    company name </p>
+                                    {{ $experience->task }}
+                                </p>
                             </div>
                         </div>
-                        <div class="p-0 mb-6">
+                        <div class="p-0 mb-4">
                             <p class="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
-                                "I found solution to all my design needs from Creative Tim. I use
-                                them as a freelancer in my hobby projects for fun! And its really
-                                affordable, very humble guys !!!"
+                                {{ $experience->description }}
                             </p>
                         </div>
                     </div>
                     {{-- end-card --}}
                 @endforeach
+
 
             </div>
         </div>

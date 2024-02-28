@@ -15,5 +15,26 @@ class ExperienceController extends Controller
         $experience = Experience::create($request->validated());
         return redirect()->back()->with('success', 'experience created successfully.');
     }
+    public function update(ExperienceUpdateRequest $request)
+    {
+        $experience = Experience::where('id', $request->input('id'))
+            ->where('user_id', auth()->id())
+            ->firstOrFail();
+        $experience->update($request->validated());
+
+        return redirect()->back()->with('success', 'Experience updated successfully.');
+    }
+
+
+    public function destroy(Request $request)
+    {
+        $experience = Experience::where('id', $request->input('id'))
+            ->where('user_id', auth()->id())
+            ->firstOrFail();
+
+        $experience->delete();
+
+        return redirect()->back()->with('success', 'Experience deleted successfully.');
+    }
 
 }
