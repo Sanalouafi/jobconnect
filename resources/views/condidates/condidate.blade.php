@@ -25,7 +25,7 @@
                     id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
                     data-dropdown-placement="bottom">
                     <span class="sr-only">Open user menu</span>
-                    <img class="w-8 h-8 rounded-full" src="{{ $condidates->getFirstMediaUrl('user') }}" alt="user photo">
+                    <img class="w-8 h-8 rounded-full" src="{{ $condidate->getFirstMediaUrl('user') }}" alt="user photo">
                 </button>
                 <!-- Dropdown menu -->
                 <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-00 dark:divide-gray-00"
@@ -92,25 +92,24 @@
 
 
     <div class="container mx-auto py-10">
-        <div
-            class="bg-gray-200 rounded-lg shadow-lg flex flex-col md:flex-row justify-center items-center md:space-x-8 p-6">
+        <div class="bg-gray-200 rounded-lg shadow-lg flex flex-col md:flex-row justify-center items-center md:space-x-8 p-6">
             <div class="md:w-1/3">
-                <img src="{{ $condidates->getFirstMediaUrl('user') }}"
+                <img src="{{ $condidate->getFirstMediaUrl('user') }}"
                     class="rounded-full w-60 h-60 md:w-72 md:h-72 shadow-xl" alt="">
             </div>
             <div class="flex flex-col justify-evenly gap-10 md:w-2/3 md:pl-8 pt-4 md:pt-0 ">
                 <div>
-                    <h1 class="text-2xl font-bold text-gray-800"> {{ $condidates->fullname }}</h1>
+                    <h1 class="text-2xl font-bold text-gray-800"> {{ $condidate->fullname }}</h1>
                 </div>
                 <div class="flex flex-col md:flex-row justify-between mt-2 text-gray-600">
                     <h3 class="mt-2 md:mt-0 md:ml-1"><span class="text-gray-900 text-lg">Address :</span>
-                        {{ $condidates->address }}</h3>
+                        {{ $condidate->address }}</h3>
                     <h3 class="mt-2 md:mt-0 md:ml-1"><span class="text-gray-900 text-lg">Phone : </span>
-                        {{ $condidates->phone }}</h3>
+                        {{ $condidate->phone }}</h3>
                 </div>
             </div>
             <div>
-                <a href="{{ route('condidate.update', $condidates->id) }}"> <button type="button"
+                <a href="{{ route('condidate.update', $condidate->id) }}"> <button type="button"
                         class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Update</button>
                 </a>
             </div>
@@ -118,86 +117,76 @@
 
         <div class="container mx-auto py-10">
             <h1 class="text-3xl font-bold mb-4">Information</h1>
+        </div>
             {{--  ==================================== experience --}}
 
+            <div class="bg-gray-200 rounded-lg shadow-lg flex flex-col">
+                <div class="border-b border-gray-200 pb-4 ml-10">
 
-            <div
-                class="bg-gray-200 rounded-lg shadow-lg flex flex-col md:flex-col justify-start items-center md:space-x-8 p-6">
+                    <button class="font-semibold text-left w-full focus:outline-none" onclick="toggleAnswer(event)">Experience</button>
 
-                <div class="border-b border-gray-200 pb-4">
-                    <button class="font-semibold text-left w-full focus:outline-none"
-                        onclick="toggleAnswer(event)">Experience</button>
-                    <div class="max-w bg-white flex flex-row rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-                        {{--  <button class="bg-green-500 hover:bg-green-700 text-white font-bold h-10 w-20 rounded">Add</button> </div>  --}}
-                        <div class="md:flex">
+                  <a href="{{ route('experience.create') }}">
+                  <button class="bg-green-500 hover:bg-green-700 text-white font-bold h-10 w-20 rounded">Add</button>
+                  </a>
+                    <div class="max-w- bg-white flex flex-row rounded-xl shadow-md overflow-hidden md:max-w-3xl">
+
+                        <div class="md:flex flex-wrap justify-around">
                             @foreach ($experiences as $experience)
-
-                                <div class="p-8">
-                                    <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Name
-                                    </div>
+                                <div class="p-8 mb-8 max-w-xs mx-auto">
+                                    <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Name</div>
                                     <div class="mt-1 text-gray-900">{{ $experience->name }}</div>
-                                    <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold mt-4">
-                                        Start Date</div>
-                                    <div class="mt-1 text-gray-900">{{ $experience->start_date }}</div>
-                                    <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold mt-4">End
-                                        Date</div>
-                                    <div class="mt-1 text-gray-900">{{ $experience->end_date }}</div>
-                                    <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold mt-4">
-                                        Company Name</div>
+                                    <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold mt-4">Start Date</div>
+                                    <div class="mt-1 text-gray-900">{{ $experience->start_date }} - {{ $experience->end_date }}</div>
+                                    <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold mt-4">Company Name</div>
                                     <div class="mt-1 text-gray-900">{{ $experience->company_name }}</div>
-                                    <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold mt-4">
-                                        Description</div>
+                                    <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold mt-4">Description</div>
                                     <div class="mt-1 text-gray-900">{{ $experience->description }}</div>
-                                    <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold mt-4">
-                                        Task</div>
+                                    <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold mt-4">Task</div>
                                     <div class="mt-1 text-gray-900">{{ $experience->task }}</div>
+                                    <div class="flex justify-end mt-4">
+                                        <a href="{{ route('experience.update',$experience->id) }}">
+                                            <button class="bg-green-500 hover:bg-green-700 text-white font-bold h-10 w-20 rounded">Update</button>
+                                            </a>
+                                        </div>
                                 </div>
-
-                            <div class="flex justify-end px-5 py-3">
-                                <button
-                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold h-10 w-20 rounded mr-2">Update</button>
-                                <button
-                                    class="bg-green-500 hover:bg-green-700 text-white font-bold h-10 w-20 rounded">Add</button>
-                            </div>
-                           @endforeach
-
+                            @endforeach
                         </div>
                     </div>
                 </div>
+            </div>
+
                 {{--  ==================================== Formation --}}
                 <div class="border-b border-gray-200 pb-4">
+                    <div class="border-b border-gray-200 pb-4 ml-10">
+                        <a href="{{ route('formation.create') }}">
+                            <button class="bg-green-500 hover:bg-green-700 text-white font-bold h-10 w-20 rounded">Add</button>
+                            </a>
                     <button class="font-semibold text-left w-full focus:outline-none" onclick="toggleAnswer(event)">Formation</button>
                     <div class="max-w-md mx-auto bg-white flex flex-row rounded-xl shadow-md overflow-hidden md:max-w-2xl">
                         <div class="md:flex">
-                            @foreach ($condidates->formations as $formation)
+                            @foreach ($condidate->formations as $formation)
                                 <div class="p-8">
-                                    <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Name
-                                    </div>
+                                    <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Name</div>
                                     <div class="mt-1 text-gray-900">{{ $formation->name }}</div>
-                                    <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold mt-4">
-                                        Start Date</div>
-                                    <div class="mt-1 text-gray-900">{{ $formation->start_date }}</div>
-                                    <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold mt-4">End
-                                        Date</div>
-                                    <div class="mt-1 text-gray-900">{{ $formation->end_date }}</div>
-                                    <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold mt-4">
-                                        Etablissement</div>
+                                    <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold mt-4">Start Date</div>
+                                    <div class="mt-1 text-gray-900">{{ $formation->start_date }} -{{ $formation->end_date }}</div>
+                                    <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold mt-4">Etablissement</div>
                                     <div class="mt-1 text-gray-900">{{ $formation->etablissement }}</div>
                                 </div>
-                            @endforeach
 
-                            <div class="flex justify-end px-5 py-3">
-                                <button
-                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">Update</button>
-                                <button
-                                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Add</button>
-                            </div>
+                                <div class="flex justify-end px-5 py-3">
+                                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">Update</button>
+                                </div>
+                             @endforeach
                         </div>
                     </div>
                 </div>
+                <hr>
+                <hr>
                 {{--  ================================ Experience --}}
-                <div class="space-y-4">
+                {{--  <div class="space-y-4">
                     <div class="border-b border-gray-300 pb-4">
+                        <div class="border-b border-gray-200 pb-4 ml-10">
                         <button class="font-semibold text-left w-full focus:outline-none" onclick="toggleAnswer(event)">Competence</button>
                         <div class="md:flex">
                             @foreach ($Skills as $Skill)
@@ -208,14 +197,12 @@
                             @endforeach
 
                             <div class="flex justify-end px-5 py-3">
-                                <button
-                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">Update</button>
-                                <button
-                                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Add</button>
+                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">Update</button>
+                                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Add</button>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>  --}}
             </div>
             <script>
                 function toggleAnswer(event) {

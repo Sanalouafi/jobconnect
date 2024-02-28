@@ -28,7 +28,7 @@ class ExperienceUpdateRequest extends FormRequest
             'company_name' => 'sometimes|string|max:255',
             'description' => 'sometimes|string',
             'task' => 'sometimes|string|max:255',
-            'user_id' => 'sometimes|exists:users,id',
+            // 'user_id' => 'sometimes|exists:users,id',
         ];
     }
 }

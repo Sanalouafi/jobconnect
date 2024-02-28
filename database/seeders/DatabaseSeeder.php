@@ -25,8 +25,8 @@ class DatabaseSeeder extends Seeder
         //     RoleSeeder::class,
         // ]);
 
-        Company::factory(5)->create();
-        // \App\Models\Experience::factory(5)->create();
+        // Company::factory(5)->create();
+        \App\Models\Experience::factory(5)->create();
 
 
     }
