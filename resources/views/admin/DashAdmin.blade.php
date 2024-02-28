@@ -289,7 +289,7 @@
                                 <td class="px-6 py-3 border-b">{{ $company->description }}</td>
                                 <td class="px-6 py-3 border-b">{{ $company->localisation }}</td>
                                 <td class="px-6 py-3 border-b h-32 w-28">
-                                    <img src="{{ $company->getFirstMediaUrl('images') }}" alt="image">
+                                    <img src="{{ $company->getFirstMediaUrl('company') }}" alt="image">
                                 </td>
                             </tr>
                         @endforeach
