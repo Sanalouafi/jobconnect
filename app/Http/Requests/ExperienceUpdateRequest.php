@@ -22,6 +22,7 @@ class ExperienceUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
+<<<<<<< HEAD
             'name' => 'required|string|max:255',
             'start_date' => 'required|date',
             'end_date' => [
@@ -37,6 +38,15 @@ class ExperienceUpdateRequest extends FormRequest
             'description' => 'required|string',
             'task' => 'required|string|max:255',
             'user_id' => 'required|exists:users,id',
+=======
+            'name' => 'sometimes|string|max:255',
+            'start_date' => 'sometimes|date',
+            'end_date' => 'sometimes|date',
+            'company_name' => 'sometimes|string|max:255',
+            'description' => 'sometimes|string',
+            'task' => 'sometimes|string|max:255',
+            // 'user_id' => 'sometimes|exists:users,id',
+>>>>>>> abdo
         ];
     }
 }
