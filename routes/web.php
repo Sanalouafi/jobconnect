@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\UserController as AdminController;//allias
 use App\Http\Controllers\Condidater\FormationController;
 use App\Http\Controllers\Condidater\ExperienceController;
 use App\Http\Controllers\Condidater\UserController as CondidateController;//allias
+use App\Http\Controllers\Home\PublicationController as HomeController;
 use App\Http\Controllers\Representative\UserController as RepresentativeController;//allias
 use App\Http\Controllers\Representative\ExperienceController as RepresentativeExpController;//allias
 use App\Http\Controllers\Representative\CompanyController as RepresentativeComController;//allias
@@ -27,9 +28,7 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('Dashadmin',['Admin\UserController@index'])->name('Dashadmin');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('/', HomeController::class);
 Route::resource('admin', AdminController::class);
 Route::resource('adminCompany', CompanyController::class);
 Route::resource('experience', ExperienceController::class);
@@ -44,14 +43,11 @@ Route::resource('representativePub', RepresentativePub::class);
 
 Route::put('/representative/{userId}/change-status', [RepresentativeController::class, 'changeStatus'])->name('representative.changeStatus');
 
-Route::get('representativePub/search', [RepresentativePub::class, 'search'])->name('representativePub.search');
+Route::POST('representativePub/search', [RepresentativePub::class, 'search'])->name('representativePub.search');
 
 
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
 

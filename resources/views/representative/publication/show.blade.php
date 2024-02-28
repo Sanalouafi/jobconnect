@@ -1,6 +1,6 @@
 <x-dashboard>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 py-10">
-        @foreach ($publications as $publication)
+    <div class="pl-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 py-10">
+        @foreach ($publicationsRes as $publicationR)
             <!-- CARD  -->
             <div class="rounded overflow-hidden shadow-lg flex flex-col relative">
                 <a href="#"></a>
@@ -8,12 +8,12 @@
                     <a href="#">
                         <div class="w-full h-40">
                             <img class="w-full h-full object-cover"
-                                src="{{ $publication->getFirstMediaUrl('publication') }}"
+                                src="{{ $publicationR->getFirstMediaUrl('publication') }}"
                                 alt="Sunset in the mountains">
                         </div>
                         <div
                             class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-75 flex justify-center items-center">
-                            
+
                         </div>
 
                     </a>
@@ -28,8 +28,8 @@
                 <div class="bg-white px-6 py-4 mb-auto">
                     <a href="#"
                         class="font-medium text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2">
-                        {{ $publication->title }}</a>
-                    <p class="text-gray-500 text-sm">{{ $publication->description }}</p>
+                        {{ $publicationR->title }}</a>
+                    <p class="text-gray-500 text-sm">{{ $publicationR->description }}</p>
                 </div>
                 <div class="px-6 py-3 flex flex-row items-center justify-between bg-gray-100">
                     <span href="#"
@@ -46,12 +46,12 @@
                                 </g>
                             </g>
                         </svg>
-                        <span class="ml-1">{{ $publication->created_at->diffForHumans() }}</span>
+                        <span class="ml-1">{{ $publicationR->created_at->diffForHumans() }}</span>
                     </span>
                     <span href="#"
                         class="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
 
-                        <span class="ml-1">{{ $publication->company->name }}</span>
+                        <span class="ml-1">{{ $publicationR->company->name }}</span>
                     </span>
                 </div>
             </div>
@@ -59,4 +59,5 @@
 
 
     </div>
+
 </x-dashboard>
