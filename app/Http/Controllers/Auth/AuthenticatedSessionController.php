@@ -30,9 +30,9 @@ class AuthenticatedSessionController extends Controller
 
         $user = Auth::user();
 
-        if ($user->role->name === 'admin') {
+        if ($user->role->name === 'Admin') {
             return redirect()->route('admin.index');
-        } elseif ($user->role->name === 'condidate') {
+        } elseif ($user->role->name === 'Condidate') {
             return redirect()->route('condidate.index');
         }
         if ($user->role->name === 'Entrepreneur' && $user->status ===1) {
