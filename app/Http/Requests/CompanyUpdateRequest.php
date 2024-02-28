@@ -25,7 +25,7 @@ class CompanyUpdateRequest extends FormRequest
             'name' => 'sometimes|string|max:255',
             'localisation' => 'sometimes|string|max:255',
             'description' => 'sometimes|string',
-            'user_id' => 'sometimes|exists:users,id',
+            'logo'=> 'required|mimes:jpg,jpeg,png,gif',
         ];
     }
 }

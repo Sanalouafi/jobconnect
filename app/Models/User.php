@@ -13,7 +13,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 
 class User extends Authenticatable implements HasMedia
 {
-    use HasApiTokens, HasFactory, Notifiable, SoftDeletes,InteractsWithMedia;
+    use HasApiTokens, HasFactory, InteractsWithMedia, Notifiable,SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -33,15 +33,16 @@ class User extends Authenticatable implements HasMedia
         'updated_at',
         'deleted_at',
     ];
+
     public function role()
     {
         return $this->belongsTo(Role::class);
     }
+
     public function company()
     {
         return $this->belongsTo(Company::class);
     }
-
 
     public function formations()
     {
@@ -57,10 +58,12 @@ class User extends Authenticatable implements HasMedia
     {
         return $this->belongsToMany(Favorise::class);
     }
-    public function Competencies()
+
+    public function Skills()
     {
-        return $this->belongsToMany(Competence::class);
+        return $this->belongsToMany(Skill::class);
     }
+
     /**
      * The attributes that should be hidden for serialization.
      *

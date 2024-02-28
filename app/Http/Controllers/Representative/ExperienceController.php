@@ -10,44 +10,31 @@ use Illuminate\Http\Request;
 
 class ExperienceController extends Controller
 {
-    public function index()
-    {
-        $experiences = Experience::all();
-        return view('experiences.index', compact('experiences'));
-    }
-
-    public function create()
-    {
-        return view('experiences.create');
-    }
-
-
     public function store(ExperienceStoreRequest $request)
     {
-        Experience::create($request->validated());
-        return redirect()->route('experiences.index')->with('success', 'Experience created successfully.');
+        $experience = Experience::create($request->validated());
+        return redirect()->back()->with('success', 'experience created successfully.');
     }
-
-    public function show(Experience $experience)
+    public function update(ExperienceUpdateRequest $request)
     {
-        return view('experiences.show', compact('experience'));
-    }
-
-
-    public function edit(Experience $experience)
-    {
-        return view('experiences.edit', compact('experience'));
-    }
-
-    public function update(ExperienceUpdateRequest $request, Experience $experience)
-    {
+        $experience = Experience::where('id', $request->input('id'))
+            ->where('user_id', auth()->id())
+            ->firstOrFail();
         $experience->update($request->validated());
-        return redirect()->route('experiences.index')->with('success', 'Experience updated successfully.');
+
+        return redirect()->back()->with('success', 'Experience updated successfully.');
     }
 
-    public function destroy(Experience $experience)
+
+    public function destroy(Request $request)
     {
+        $experience = Experience::where('id', $request->input('id'))
+            ->where('user_id', auth()->id())
+            ->firstOrFail();
+
         $experience->delete();
-        return redirect()->route('experiences.index')->with('success', 'Experience deleted successfully.');
+
+        return redirect()->back()->with('success', 'Experience deleted successfully.');
     }
+
 }

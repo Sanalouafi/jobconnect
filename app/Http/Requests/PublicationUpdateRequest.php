@@ -25,6 +25,8 @@ class PublicationUpdateRequest extends FormRequest
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'company_id' => 'required|exists:companies,id',
+            'media'=> 'required|mimes:jpg,jpeg,png,gif',
+
         ];
     }
 }

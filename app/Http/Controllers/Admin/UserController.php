@@ -16,13 +16,12 @@ class UserController extends Controller
         return view('admin.Dashadmin',compact('users'));
     }
 
-
     public function Show()
     {
         $user=Auth::user();
         $user = User::paginate(10);
 
-        return view('admin.Dashadmin', compact('users'));
+        return view('admin.Dashadmin', compact('user'));
     }
 
 

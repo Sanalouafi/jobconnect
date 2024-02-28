@@ -36,11 +36,10 @@ class RegisteredUserController extends Controller
         //     'fullname' => ['required', 'string', 'max:255'],
         //     'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
         //     'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        //     'address' => 'required|string|max:255',
-        //     'phone' => 'required|string',
-        //     'role_id' => 'required',
+        //     'address' => ['required', 'string', 'max:255'],
+        //     'phone' => ['required', 'string'],
+        //     'role_id' => ['required', 'exists:roles,id'],
         // ]);
-
         $user = User::create([
             'fullname' => $request->fullname,
             'email' => $request->email,
@@ -50,28 +49,31 @@ class RegisteredUserController extends Controller
             'phone' => $request->phone,
             'role_id' => $request->role_id,
         ]);
-
         if ($request->hasFile('image')) {
             $user->addMedia($request->file('image'))->toMediaCollection('user');
         }
         if ($request->role_id == 4) {
-            $user->status=0;
+            $user->status = 0;
             $company = Company::create([
                 'name' => $request->name,
                 'localisation' => $request->localisation,
                 'description' => $request->description,
             ]);
+
             if ($request->hasFile('logo')) {
                 $company->addMedia($request->file('logo'))->toMediaCollection('company');
             }
+
             $user->company()->associate($company);
+
             $user->save();
             event(new Registered($user));
             return redirect()->route('login');
         }
+
         if ($request->role_id == 3) {
-            $user->company_id =$request->company_id;
-            $user->status=0;
+            $user->company_id = $request->company_id;
+            $user->status = 0;
             $user->save();
             event(new Registered($user));
 

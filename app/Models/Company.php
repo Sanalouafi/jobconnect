@@ -9,7 +9,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 
 class Company extends Model implements HasMedia
 {
-    use HasFactory,InteractsWithMedia;
+    use HasFactory, InteractsWithMedia;
     protected $fillable =
     [
         'name',
@@ -20,6 +20,7 @@ class Company extends Model implements HasMedia
     {
         return $this->hasMany(User::class);
     }
+
 
     public function offres()
     {

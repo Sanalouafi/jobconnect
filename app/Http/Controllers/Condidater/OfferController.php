@@ -7,5 +7,12 @@ use Illuminate\Http\Request;
 
 class OfferController extends Controller
 {
-    //
+    public function index()
+    {
+           
+        $return=Offer::All();
+        return view('condidates.Condidate');
+    }
+
+
 }
