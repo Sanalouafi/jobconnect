@@ -38,9 +38,10 @@ Route::resource('condidate', CondidateController::class);
 Route::resource('representative', RepresentativeController::class);
 Route::resource('representativeExperience', RepresentativeExpController::class);
 Route::put('/representative/{userId}/change-status', [RepresentativeController::class, 'changeStatus'])->name('representative.changeStatus');
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
 

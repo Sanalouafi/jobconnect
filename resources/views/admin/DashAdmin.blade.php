@@ -91,7 +91,7 @@
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
 
-                                        <input type="submit" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"" value="logout ">
+                                        <input type="submit" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" value="logout ">
                                     </form>
                                 </li>
                             </ul>
@@ -278,7 +278,6 @@
                             <th class="px-6 py-3 border-b">description</th>
                             <th class="px-6 py-3 border-b">localisation</th>
                             <th class="px-6 py-3 border-b">logo</th>
-                            <th class="px-6 py-3 border-b">owner</th>
                         </tr>
                     </thead>
 
@@ -292,7 +291,6 @@
                                 <td class="px-6 py-3 border-b h-32 w-28">
                                     <img src="{{ $company->getFirstMediaUrl('images') }}" alt="image">
                                 </td>
-                                <td class="px-6 py-3 border-b">{{ $company->user }}</td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -300,47 +298,28 @@
             </form>
         </div>
     </div>
-    {{--  ============================================= partner  --}}
-    {{--  <div class="container mx-auto p-8 mb-10 bg-white rounded-lg shadow-md">
-            <h2 class="text-2xl font-semibold mb-4">Partners List</h2>
-            <div class="overflow-x-auto">
-                <form action="" method="get" class="w-full">
-                    <table class="w-full table-auto border border-gray-300">
-                        <thead class="bg-gray-100">
-                            <tr>
-                                <th class="px-6 py-3 border-b">Partner ID</th>
-                                <th class="px-6 py-3 border-b">image</th>
-                                <th class="px-6 py-3 border-b">name</th>
-                                <th class="px-6 py-3 border-b">phone</th>
-                                <th class="px-6 py-3 border-b">adress</th>
-                                <th class="px-6 py-3 border-b">type</th>
-                                <th class="px-6 py-3 border-b">email</th>
-                            </tr>
-                        </thead>
 
-                        <tbody>
-                            {{--  @foreach ($users as $user)
-                                <tr class="hover:bg-gray-50">
-                                    <td class="px-6 py-3 border-b">{{ $user->id }}</td>
-                                    <td class="px-6 py-3 border-b">
-                                        <img src="{{ $user->getFirstMediaUrl('images') }}"
-                                            alt="Partner logo"class="w-20 h-20 mb-3 rounded-full shadow-lg">
-                                    </td>
-                                    <td class="px-6 py-3 border-b">{{ $user->name }}</td>
-                                    <td class="px-6 py-3 border-b">{{ $user->phone }}</td>
-                                    <td class="px-6 py-3 border-b">{{ $user->adress }}</td>
-                                    <td class="px-6 py-3 border-b">{{ $user->type }}</td>
-                                    <td class="px-6 py-3 border-b">{{ $user->email }}</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </form>
-            </div>
-        </div>  --}}
-    {{--  ====================================================   --}}
-    {{--  </x-app-layout>  --}}
 
+    <footer class="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
+        <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+          <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
+        </span>
+        <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+            <li>
+                <a href="#" class="hover:underline me-4 md:me-6">About</a>
+            </li>
+            <li>
+                <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+            </li>
+            <li>
+                <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+            </li>
+            <li>
+                <a href="#" class="hover:underline">Contact</a>
+            </li>
+        </ul>
+        </div>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
 </body>
