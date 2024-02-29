@@ -5,52 +5,64 @@ namespace App\Http\Controllers\Representative;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PublicationStoreRequest;
 use App\Http\Requests\PublicationUpdateRequest;
+use App\Models\Company;
 use App\Models\Publication;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class PublicationController extends Controller
 {
     public function index()
     {
-        $publications = Publication::all();
-        return view('publications.index', compact('publications'));
+        $user = auth()->user();
+        $company = Company::where("id", $user->company_id)->first();
+        $publications = Publication::orderBy('created_at', 'desc')->take(3)->get();
+        $allPublications = Publication::orderBy('created_at', 'desc')->get();
+        return view('representative.publication.index', compact('publications', 'company', 'user', 'allPublications'));
     }
-
-
-    public function create()
-    {
-        return view('publications.create');
-    }
-
 
     public function store(PublicationStoreRequest $request)
     {
-        Publication::create($request->validated());
-        return redirect()->route('publications.index')->with('success', 'Publication created successfully.');
+        $publication = Publication::create($request->validated());
+        if ($request->hasFile('media')) {
+            $publication->addMediaFromRequest('media')->toMediaCollection('publication');
+        }
+        return redirect()->back()->with('success', 'Publication created successfully.');
     }
-
-
     public function show(Publication $publication)
     {
-        return view('publications.show', compact('publication'));
     }
 
-
-    public function edit(Publication $publication)
+    public function update(PublicationUpdateRequest $request)
     {
-        return view('publications.edit', compact('publication'));
-    }
-
-    public function update(PublicationUpdateRequest $request, Publication $publication)
-    {
+        $publication = Publication::where('id', $request->input('id'))
+            ->where('company_id', $request->input('company_id'))->first();
         $publication->update($request->validated());
-        return redirect()->route('publications.index')->with('success', 'Publication updated successfully.');
+
+        if ($request->hasFile('media')) {
+            $publication->clearMediaCollection('publication');
+            $publication->addMediaFromRequest('media')->toMediaCollection('publication');
+        }
+        return redirect()->back()->with('success', 'Publication updated successfully.');
     }
 
-   
     public function destroy(Publication $publication)
     {
         $publication->delete();
         return redirect()->route('publications.index')->with('success', 'Publication deleted successfully.');
     }
+    public function search(Request $request)
+    {
+        $keyword = $request->input('keyword');
+
+        $publications = Publication::where('title', 'like', '%' . $keyword . '%')
+            ->orWhere('description', 'like', '%' . $keyword . '%')
+            ->get();
+
+        return view('representative.publication.index', compact('publications', 'keyword'));
+    }
+
+
+
+
 }

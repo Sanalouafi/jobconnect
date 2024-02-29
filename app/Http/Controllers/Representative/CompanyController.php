@@ -11,43 +11,27 @@ use Illuminate\Http\Request;
 class CompanyController extends Controller
 {
 
-    public function index()
-    {
-        $companies = Company::all();
-        return view('companies.index', compact('companies'));
-    }
 
-    public function create()
-    {
-        return view('companies.create');
-    }
 
-    public function store(CompanyStoreRequest $request)
+    public function edit()
     {
-        $company = Company::create($request->validated());
-        $company->addMediaFromRequest('logo')->toMediaCollection('logos');
-        return redirect()->route('companies.index')->with('success', 'Company created successfully.');
-    }
-
-    public function show(Company $company)
-    {
-        return view('companies.show', compact('company'));
-    }
-
-    public function edit(Company $company)
-    {
-        return view('companies.edit', compact('company'));
+        $user = auth()->user();
+        $company = Company::Where('id', $user->company_id)->first();
+        return view('representative.company.update', compact('company'));
     }
 
 
-    public function update(CompanyUpdateRequest $request, Company $company)
+    public function update(CompanyUpdateRequest $request)
     {
+        $company = Company::where('id', $request->input('company_id'))
+            ->firstOrFail();
         $company->update($request->validated());
+
         if ($request->hasFile('logo')) {
-            $company->clearMediaCollection('logos');
-            $company->addMediaFromRequest('logo')->toMediaCollection('logos');
+            $company->clearMediaCollection('company');
+            $company->addMediaFromRequest('logo')->toMediaCollection('company');
         }
-        return redirect()->route('companies.index')->with('success', 'Company updated successfully.');
+        return redirect()->back()->with('success', 'Company updated successfully.');
     }
 
     public function destroy(Company $company)

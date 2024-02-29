@@ -26,10 +26,11 @@ class UserController extends Controller
     public function edit()
     {
         $user = Auth::user();
-        $experiences=Experience::where('user_id',$user->id);
+        $experiences = Experience::where('user_id', $user->id)->get();
 
-        return view('representative.update', compact('user','experiences'));
+        return view('representative.update', compact('user', 'experiences'));
     }
+
     public function update(UserUpdateRequest $request)
     {
         $user = Auth::user();

@@ -22,6 +22,7 @@ class ExperienceUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
+<<<<<<< HEAD
             'name' => 'sometimes|string|max:255',
             'start_date' => 'sometimes|date',
             'end_date' => 'sometimes|date',
@@ -29,6 +30,23 @@ class ExperienceUpdateRequest extends FormRequest
             'description' => 'sometimes|string',
             'task' => 'sometimes|string|max:255',
             // 'user_id' => 'sometimes|exists:users,id',
+=======
+            'name' => 'required|string|max:255',
+            'start_date' => 'required|date',
+            'end_date' => [
+                'required',
+                'date',
+                function ($attribute, $value, $fail) {
+                    if ($this->input('start_date') && strtotime($value) <= strtotime($this->input('start_date'))) {
+                        $fail('The end date must be greater than the start date.');
+                    }
+                },
+            ],
+            'company_name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'task' => 'required|string|max:255',
+            'user_id' => 'required|exists:users,id',
+>>>>>>> 346fe16abed8bad0f1888d21d7d10618e1d632cc
         ];
     }
 }

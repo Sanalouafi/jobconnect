@@ -21,7 +21,7 @@ class Company extends Model implements HasMedia
         return $this->hasMany(User::class);
     }
 
-    
+
     public function offres()
     {
         return $this->hasMany(Offer::class);

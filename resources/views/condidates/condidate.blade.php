@@ -74,22 +74,21 @@
                     <li>
                         <a href="#"
                             class="block py-2 px-3 text-gray-900 bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
-                            aria-current="page">Home</a>
+                            aria-current="page">Publication</a>
                     </li>
-                    <li>
+                    {{--  <li>
                         <a href="#"
                             class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-900 md:dark:hover:text-blue-00 dark:hover:bg-gray-00 dark:hover:text-gray-900 md:dark:hover:bg-transparent ">Profile</a>
                     </li>
                     <li>
                         <a href="#"
                             class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-900 md:dark:hover:text-blue-00 dark:hover:bg-gray-00 dark:hover:text-gray-900 md:dark:hover:bg-transparent ">Favoris</a>
-                    </li>
+                    </li>  --}}
 
                 </ul>
             </div>
         </div>
     </nav>
-
 
     <div class="container mx-auto py-10">
         <div class="bg-gray-200 rounded-lg shadow-lg flex flex-col md:flex-row justify-center items-center md:space-x-8 p-6">
@@ -128,7 +127,7 @@
                   <a href="{{ route('experience.create') }}">
                   <button class="bg-green-500 hover:bg-green-700 text-white font-bold h-10 w-20 rounded">Add</button>
                   </a>
-                    <div class="max-w- bg-white flex flex-row rounded-xl shadow-md overflow-hidden md:max-w-3xl">
+                    <div class="max-w-6xl bg-white flex flex-row rounded-xl shadow-md overflow-hidden md:max-w-6xll">
 
                         <div class="md:flex flex-wrap justify-around">
                             @foreach ($experiences as $experience)
