@@ -36,7 +36,7 @@ class AuthenticatedSessionController extends Controller
             return redirect()->route('condidate.index');
         }
         if ($user->role->name === 'Entrepreneur' && $user->status ===1) {
-            return redirect()->route('Entrepreneur.index');
+            return redirect()->route('entrepreneur.index');
         }
         if ($user->role->name === 'Representative' && $user->status ===1) {
             return redirect()->route('representative.index');

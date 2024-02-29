@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class OffreStoreRequest extends FormRequest
+class OfferStoreRequest extends FormRequest
 {
         /**
          * Determine if the user is authorized to make this request.
@@ -31,6 +31,7 @@ class OffreStoreRequest extends FormRequest
                 'salary' => 'required|numeric',
                 'localisation' => 'required|string|max:255',
                 'company_id' => 'required|exists:companies,id',
+                'media'=> 'required|mimes:jpg,jpeg,png,gif',
             ];
         }
     }
