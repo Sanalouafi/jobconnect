@@ -10,6 +10,9 @@ use App\Http\Controllers\Representative\UserController as RepresentativeControll
 use App\Http\Controllers\Representative\ExperienceController as RepresentativeExpController;//allias
 use App\Http\Controllers\Representative\CompanyController as RepresentativeComController;//allias
 use App\Http\Controllers\Representative\PublicationController as RepresentativePub;//allias
+use App\Http\Controllers\Entrepreneur\UserController as EntrepreneurController;//allias
+use App\Http\Controllers\Entrepreneur\OfferController as EntrepreneurOff;//allias
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -35,21 +38,27 @@ Route::resource('experience', ExperienceController::class);
 Route::resource('formation', FormationController::class);
 Route::resource('condidate', CondidateController::class);
 
-////////representative
-Route::resource('representative', RepresentativeController::class);
-Route::resource('representativeExperience', RepresentativeExpController::class);
-Route::resource('representativeCompany', RepresentativeComController::class);
-Route::resource('representativePub', RepresentativePub::class);
-
-Route::put('/representative/{userId}/change-status', [RepresentativeController::class, 'changeStatus'])->name('representative.changeStatus');
-
-Route::POST('representativePub/search', [RepresentativePub::class, 'search'])->name('representativePub.search');
-
 
 
 
 
 Route::middleware('auth')->group(function () {
+
+    Route::middleware('representative')->group(function () {
+        ////////representative
+        Route::resource('representative', RepresentativeController::class);
+        Route::resource('representativeExperience', RepresentativeExpController::class);
+        Route::resource('representativeCompany', RepresentativeComController::class);
+        Route::resource('representativePub', RepresentativePub::class);
+        Route::put('/representative/{userId}/change-status', [RepresentativeController::class, 'changeStatus'])->name('representative.changeStatus');
+        Route::POST('representativePub/search', [RepresentativePub::class, 'search'])->name('representativePub.search');
+    });
+    Route::middleware('entrepreneur')->group(function () {
+        ////////entrepreneur
+        Route::resource('entrepreneur', EntrepreneurController::class);
+        Route::resource('entrepreneurOff', EntrepreneurOff::class);
+
+    });
 
 });
 
