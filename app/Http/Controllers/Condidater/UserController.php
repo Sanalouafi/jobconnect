@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Condidater;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserUpdateRequest;
 use App\Models\Experience;
 use Illuminate\Support\Facades\Auth;
 
@@ -10,10 +11,11 @@ class UserController extends Controller
 {
     public function index()
     {
-        $condidates = Auth::user();
-        $experiences = Experience::where('user_id',$condidates->id)->get();
-        $Skills=$condidates->Skills;
-        return view('condidates.condidate', compact('condidates', 'experiences','Skills'));
+        $condidate = Auth::user();
+        $experiences = Experience::where('user_id', $condidate->id)->get();
+        // $Skills = $condidate->Skills;
+
+        return view('condidates.condidate', compact('condidate', 'experiences'));
     }
 
     public function Show()
@@ -31,12 +33,15 @@ class UserController extends Controller
     public function update(UserUpdateRequest $request)
     {
         $condidate = Auth::user();
-        update($request->validated());
-        if ($request->hasFile('image')) {
+        $data = $request->all();
+
+        if ($request->hasFile('user')) {
             $condidate->clearMediaCollection('user');
-            $condidate->addMediaFromRequest('image')->toMediaCollection('user');
+            $condidate->addMediaFromRequest('user')->toMediaCollection('user');
         }
 
-        return view('condidates.condidate', compact('condidate'));
+        $condidate->update($data);
+
+        return redirect()->route('condidate.index');
     }
 }

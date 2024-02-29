@@ -25,7 +25,6 @@ class CompanyFactory extends Factory
             'name' => $this->faker->company,
             'localisation' => $this->faker->address,
             'description' => $this->faker->paragraph,
-            'user_id' => 2, 
         ];
     }
 }

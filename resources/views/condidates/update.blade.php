@@ -70,32 +70,33 @@
       </nav>
     {{--  ======================  --}}
     <div class="container mx-auto py-10">
-        <dir>
+        <div>
             <a href="{{ route('condidate.index') }}"> <button type="button" class="text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Back to the Profile</button>
             </a>
-         </dir>
+         </div>
         <div class="bg-gray-200 rounded-lg shadow-lg flex flex-col md:flex-row justify-center items-center md:space-x-8 p-6">
             <div class="md:w-1/3">
                 <img src="{{ $condidate->getFirstMediaUrl('user') }}" class="rounded-full w-60 h-60 md:w-72 md:h-72 shadow-xl" alt="">
-                <input type="file" id="image-input" name="image" class=""
-                required>
-            </div>
-            <form action="{{ route('condidate.edit',$condidate->id) }}" method="POST" class="md:w-2/3 pt-4 md:pt-0">
+                </div>
+               <form action="{{ route('condidate.update', $condidate->id) }}" method="POST" class="md:w-2/3 pt-4 md:pt-0" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
+
+                <div class="md:w-1/3 mb-10">
+                <input type="file" id="image-input" name="user" class="">
+                </div>
+
                 <div>
-                    <input type="text" name="address" value="{{ $condidate->fullname }}" class="input" placeholder="Address">
+                    <input type="text" name="fullname" value="{{ $condidate->fullname }}" class="input" placeholder="Address">
 
                 </div>
+
                 <div class="flex flex-col md:flex-row justify-center md:justify-between mt-4 md:mt-2 space-y-4 md:space-y-0">
                     <input type="text" name="address" value="{{ $condidate->address }}" class="input" placeholder="Address">
                     <input type="text" name="phone" value="{{ $condidate->phone }}" class="input" placeholder="Phone">
-                    <select name="status" class="input">
-                        <option value="Active" {{ $condidate->status === 'Active' ? 'selected' : '' }}>Active</option>
-                        <option value="Inactive" {{ $condidate->status === 'Inactive' ? 'selected' : '' }}>Inactive</option>
-                    </select>
                 </div>
-                <button type="submit" name="submit" class="btn mt-4">Update</button>
+
+                <button type="submit" name="submit" class="text-white mt-16 bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 ">Update</button>
             </form>
         </div>
     </div>
