@@ -38,7 +38,7 @@ class ExperienceStoreRequest extends FormRequest
             'company_name' => 'required|string|max:255',
             'description' => 'required|string',
             'task' => 'required|string|max:255',
-            'user_id' => 'required|exists:users,id',
+            // 'user_id' => 'required|exists:users,id',
         ];
     }
 }

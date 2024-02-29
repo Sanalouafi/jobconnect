@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\CompanyController;
-use App\Http\Controllers\Admin\UserController as AdminController;//allias
 use App\Http\Controllers\Condidater\FormationController;
 use App\Http\Controllers\Condidater\ExperienceController;
+use App\Http\Controllers\Admin\UserController as AdminController;//allias
 use App\Http\Controllers\Condidater\UserController as CondidateController;//allias
 use App\Http\Controllers\Home\PublicationController as HomeController;
 use App\Http\Controllers\Representative\UserController as RepresentativeController;//allias
@@ -32,14 +32,13 @@ use Illuminate\Support\Facades\Route;
 // Route::get('Dashadmin',['Admin\UserController@index'])->name('Dashadmin');
 
 Route::resource('/', HomeController::class);
+
+
 Route::resource('admin', AdminController::class);
 Route::resource('adminCompany', CompanyController::class);
 Route::resource('experience', ExperienceController::class);
 Route::resource('formation', FormationController::class);
 Route::resource('condidate', CondidateController::class);
-
-
-
 
 
 Route::middleware('auth')->group(function () {
